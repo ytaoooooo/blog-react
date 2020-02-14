@@ -1,0 +1,5 @@
+// export const GET_RECOMMEND_DATA = "home_GET_RECOMMEND_DATA"
+// export const GET_TOPIC_DATA = "home_GET_TOPIC_DATA"
+// export const GET_LIST_DATA = "home_GET_LIST_DATA"
+// export const TOGGLE_SCROLL_TOP = "home_TOGGLE_SCROLL_TOP"
+// export const LOAD_MORE = "home_LOAD_MORE"
