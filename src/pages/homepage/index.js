@@ -51,14 +51,14 @@ class Homepage extends Component {
                                 </div>
                             </div>
                             <div className="music-container">
-                                <div className="music-title">My music:</div>
+                                <div className="music-title">My Music:</div>
                                 <div className="music-content">
                                     <img src="https://www.yangicheng.cn/static/image/git.png" alt=""/>
                                 </div>
                             </div>                        
                         </div>
                         <div className="recommend">
-                            
+                            <div className="recommend-title">My Recommend:</div>
                             <div className="recommend-course">
                                 <div className="course-container">
                                     <img className="course-img"src="https://www.yangicheng.cn/static/image/7yue_python.jpg" alt=""/>

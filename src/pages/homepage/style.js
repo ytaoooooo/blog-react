@@ -160,11 +160,17 @@ export const HomepageContent = styled.div`
     }
     .recommend{
         display:flex;
+        flex-direction: column;
         border:1px solid black;
         margin-top: 10px;
         box-sizing: border-box;
         padding: 10px 20px;
         width:100%;
+        .recommend-title{
+            line-height:40px;
+            font-size: 30px;
+            font-weight: 400px;
+        }
         .recommend-course{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -180,6 +186,9 @@ export const HomepageContent = styled.div`
                     height: 100px;
                     width: 180px;
                     border-radius: 8px;
+                }
+                .comment{
+                    font-family: "PingFang SC","Microsoft YaHei";
                 }
             }
         }
