@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const WriteWrapper = styled.div `
+export const SummaryWrapper = styled.div `
     width:100px;
     height:100px;
-    background: green;
+    background: red;
 
 `

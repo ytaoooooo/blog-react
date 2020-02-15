@@ -5,9 +5,10 @@ import { IconfontGlobalStyle } from './static/iconfont/iconfont'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Home from './pages/home'
-import Login from './pages/login'
-import Write from './pages/write'
-import Detail from './pages/detail'
+import Homepage from './pages/homepage'
+import Article from './pages/ariticle'
+import Summary from './pages/summary'
+// import Detail from './pages/detail'
 // import Header from './common/header'
 
 class App extends Component {
@@ -17,9 +18,9 @@ class App extends Component {
         <BrowserRouter basename="/blog">
           <GlobalStyle />
           <IconfontGlobalStyle />
-          <Route path="/detail" exact component={Detail}></Route>
-          <Route path="/write" exact component ={Write}></Route>
-          <Route path="/login" exact component={Login}></Route>
+          <Route path="/summary" exact component={Summary}></Route>
+          <Route path="/article" exact component ={Article}></Route>
+          <Route path="/homepage" exact component={Homepage}></Route>
           <Route path="/" exact component={Home}></Route>
         </BrowserRouter>
       </Provider>

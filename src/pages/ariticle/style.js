@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const LoginWrapper = styled.div `
+export const ArticleWrapper = styled.div `
     width:100px;
     height:100px;
-    background: red;
+    background: green;
 
 `
