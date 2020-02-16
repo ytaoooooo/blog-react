@@ -2,6 +2,12 @@ import styled from 'styled-components'
 
 export const HomepageWrapper = styled.div`
     background: #F2EEDF;
+    .back {
+        position: fixed;
+        font-size: 40px;
+        top: 30px;
+        left : 30px;
+    }
 `
 export const HomepageContainer = styled.div`
     display: flex;
@@ -14,6 +20,7 @@ export const HomepageHeader = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top:5%;
+    
     .content-container{
         display:flex;
         flex-direction: row;
@@ -62,7 +69,6 @@ export const HomepageHeader = styled.div`
         }
     }
 `
-
 export const HomepageContent = styled.div`
     dispaly: flex;
     flex-direction: column;

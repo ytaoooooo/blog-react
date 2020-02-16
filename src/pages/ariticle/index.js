@@ -9,6 +9,7 @@ import {
 } from './style'
 import Swiper from 'swiper/js/swiper';
 import 'swiper/css/swiper.css'
+import {Link} from 'react-router-dom'
 
 class Article extends Component {
     componentDidMount() {
@@ -27,6 +28,9 @@ class Article extends Component {
     render() {
         return (
             <ArticleWrapper>
+                <Link to="/">
+                    <i className="iconfont back">&#xe9da;</i>
+                </Link>
                 <ArticleContainer>
                     <ArticleHeader>
                         <div className="title"> مقالات </div>
@@ -52,7 +56,7 @@ class Article extends Component {
 
                             <div className="article-container">
                                 <div className="article-item">
-                                    <img src="https://www.yangicheng.cn/static/image/cover.jpg" alt="" className="article-img"/>
+                                    <img src="https://www.yangicheng.cn/static/image/cover.jpg" alt="" className="article-img" />
                                     <div className="article-content">
                                         <div className="article-title">关于个人博客</div>
                                         <div className="article-summary">
@@ -62,7 +66,7 @@ class Article extends Component {
                                     </div>
                                 </div>
                                 <div className="article-item">
-                                    <img src="https://www.yangicheng.cn/static/image/cover.jpg" alt="" className="article-img"/>
+                                    <img src="https://www.yangicheng.cn/static/image/cover.jpg" alt="" className="article-img" />
                                     <div className="article-content">
                                         <div className="article-title">关于个人博客</div>
                                         <div className="article-summary">
@@ -72,7 +76,7 @@ class Article extends Component {
                                     </div>
                                 </div>
                                 <div className="article-item">
-                                    <img src="https://www.yangicheng.cn/static/image/cover.jpg" alt="" className="article-img"/>
+                                    <img src="https://www.yangicheng.cn/static/image/cover.jpg" alt="" className="article-img" />
                                     <div className="article-content">
                                         <div className="article-title">关于个人博客</div>
                                         <div className="article-summary">
@@ -82,7 +86,7 @@ class Article extends Component {
                                     </div>
                                 </div>
                                 <div className="article-item">
-                                    <img src="https://www.yangicheng.cn/static/image/cover.jpg" alt="" className="article-img"/>
+                                    <img src="https://www.yangicheng.cn/static/image/cover.jpg" alt="" className="article-img" />
                                     <div className="article-content">
                                         <div className="article-title">关于个人博客</div>
                                         <div className="article-summary">

@@ -9,6 +9,7 @@ import {
 } from './style'
 import { actionCreator } from './store'
 import { connect } from 'react-redux'
+import {Link } from 'react-router-dom'
 
 
 
@@ -22,6 +23,9 @@ class Summary extends Component {
 
         return (
             <SummaryWrapper>
+                <Link to="/">
+                    <i className="iconfont back">&#xe9da;</i>
+                </Link>
                 <SummaryContainer>
                     <SummaryHeader>
                         <div className="title">ملاحظات </div>

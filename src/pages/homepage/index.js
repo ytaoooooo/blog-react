@@ -5,12 +5,16 @@ import {
     HomepageHeader,
     HomepageContent
 }from './style'
+import {Link }from 'react-router-dom'
 
 
 class Homepage extends Component {
     render(){
         return(
             <HomepageWrapper>
+                <Link to="/">
+                <i className="iconfont back">&#xe9da;</i>
+                </Link>
                 <HomepageContainer>
                     <HomepageHeader>
                         <div className="content-container">

@@ -3,6 +3,12 @@ import styled from 'styled-components'
 
 export const SummaryWrapper = styled.div `
     background:#F2EEDF;
+    .back {
+        position: fixed;
+        font-size: 40px;
+        top: 30px;
+        left : 30px;
+    }
 `
 export const SummaryContainer = styled.div `
     display: flex;
