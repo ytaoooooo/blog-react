@@ -72,6 +72,9 @@ export const ArticleLeft = styled.div `
                 height: 95px;
                 justify-content: center;
                 border-bottom: 1px solid #dedede;
+                a:link {
+                text-decoration: none;
+                }
                 .article-title{
                     font-weight: 700;
                     margin-bottom: 10px;
@@ -83,20 +86,26 @@ export const ArticleLeft = styled.div `
                     overflow: hidden;
                     text-overflow: ellipsis;
                     width:100%;
-                    cursor: pointer;
+                    
+                    
                 }
                 .article-summary{
                     display: flex;
                     flex-direction:row;
                     justify-content: space-between;
-                    .label{
-                        padding: 4px 12px;
-                        font-size: 12px;
-                        color: #545c63;
-                        line-height: 16px;
-                        background: rgba(84,92,99,0.1);
-                        border-radius: 12px;
-                        cursor: pointer;
+                    .label-container{
+                        display:flex;
+                        flex-direction:row;
+                        .label{
+                            padding: 4px 12px;
+                            font-size: 12px;
+                            color: #545c63;
+                            line-height: 16px;
+                            background: rgba(84,92,99,0.1);
+                            border-radius: 12px;
+                            margin-right:10px;
+                        }
+                        
                     }
                     .date{
                         font-size: 12px;
