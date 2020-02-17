@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ArticleWrapper = styled.div `
+export const ArticleWrapper = styled.div`
     background:#F2EEDF;
     .back {
         position: fixed;
@@ -9,12 +9,12 @@ export const ArticleWrapper = styled.div `
         left : 30px;
     }
 `
-export const ArticleContainer = styled.div `
+export const ArticleContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 12%;
 `
-export const ArticleHeader = styled.div `
+export const ArticleHeader = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -26,12 +26,12 @@ export const ArticleHeader = styled.div `
         font-weight: 400;
     }
 `
-export const ArticleContent = styled.div `
+export const ArticleContent = styled.div`
     display: flex;
     flex-direction: row;
     
 `
-export const ArticleLeft = styled.div `
+export const ArticleLeft = styled.div`
     display:flex;
     width: 70%;
     box-sizing: border-box;
@@ -53,6 +53,7 @@ export const ArticleLeft = styled.div `
         box-sizing: border-box;
         padding:10px 10px;
         box-shadow: 3px 3px 3px #dedede;
+        overflow:hidden;
         .article-item{
             display:flex;
             width:100%;
@@ -97,6 +98,10 @@ export const ArticleLeft = styled.div `
                         display:flex;
                         flex-direction:row;
                         .label{
+                            display:flex;
+                            flex-direction:row;
+                            justify-content:center;
+                            width:50px;
                             padding: 4px 12px;
                             font-size: 12px;
                             color: #545c63;
@@ -118,7 +123,7 @@ export const ArticleLeft = styled.div `
         }
     }
 `
-export const ArticleRight = styled.div `
+export const ArticleRight = styled.div`
     display:flex;
     width: 30%;
     flex-direction: column;

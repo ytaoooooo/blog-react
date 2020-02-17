@@ -103,14 +103,15 @@ export const SummaryRight = styled.div `
         .summaryItemHeaderContent{
             display:flex;
             flex-direction:column;
-            justify-content: center;
-            
+            justify-content: center;            
             .summaryItemHeaderName{
+                width:100%;
                 margin-bottom:4px;
                 font-size:20px;
                 font-weight:600;
             }
             .summaryItemheaderSummary{
+                width:100%;
                 margin-top:5px;
                 margin-bottom:5px;
                 font-size: 14px;
