@@ -3,6 +3,16 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 
+html,body,#root{
+	height: 100%;
+	width:100%;
+}
+html{
+	font-size: 62.5% !important;
+	color: #222;
+}
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
