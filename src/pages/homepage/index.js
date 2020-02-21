@@ -1,94 +1,157 @@
-import React, {Component} from 'react'
+import React, { useState } from 'react'
 import {
-    HomepageWrapper,
     HomepageContainer,
-    HomepageHeader,
-    HomepageContent
-}from './style'
-import {Link }from 'react-router-dom'
+    DesktopHeader,
+    DesktopContent,
+    ContentNav,
+    Content,
+    ArticleContainer
+} from './style'
+import { Link } from 'react-router-dom'
 
-
-class Homepage extends Component {
-    render(){
-        return(
-            <HomepageWrapper>
-                <Link to="/">
+function Homepage() {
+    const [select, setSelect] = useState(0);
+    return (
+        <HomepageContainer>
+            <Link to="/">
                 <i className="iconfont back">&#xe9da;</i>
-                </Link>
-                <HomepageContainer>
-                    <HomepageHeader>
-                        <div className="content-container">
-                            <img className="avatar" src="https://www.yangicheng.cn/static/image/avatar.jpg" alt=""/>
-                            <div className="font-container">
-                                <p className="font-name">YooY</p>
-                                <p className="font-introduction">Never say die.</p>
-                            </div>
-                        </div>
-                        <div className="like-container">
-                            <i className="iconfont like-icon">&#xea66;</i>
-                            <p className="like-number">99</p>
-                        </div>
-                    </HomepageHeader>
-                    <HomepageContent>
-                        <div className="introduction">
-                            <div className="introduction-title">About Me:</div>
-                            <div className="introduction-container">
-                                <div className="introduction-name">
-                                    <div className="iconfont name-icon">&#xe9d9;</div>
-                                    <div className="name">you can call me Towel</div>
-                                </div>
-                                <div className="introduction-hobby">
-                                    <div className="iconfont hobby-icon">&#xe9d9;</div>
-                                    <div className="hobby">code game movie music</div>
-                                </div>
-                                <div className="introduction-aboutWeb">
-                                    <div className="iconfont web-icon">&#xe9d9;</div>
-                                    <div className="web">xxxxxx</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="works">
-                            <div className="github-container">
-                                <div className="github-title">My Github:</div>
-                                <div className="github-content">
-                                    <img src="https://www.yangicheng.cn/static/image/git.png" alt=""/>
-                                </div>
-                            </div>
-                            <div className="music-container">
-                                <div className="music-title">My Music:</div>
-                                <div className="music-content">
-                                    <img src="https://www.yangicheng.cn/static/image/git.png" alt=""/>
-                                </div>
-                            </div>                        
-                        </div>
-                        <div className="recommend">
-                            <div className="recommend-title">My Recommend:</div>
-                            <div className="recommend-course">
-                                <div className="course-container">
-                                    <img className="course-img"src="https://www.yangicheng.cn/static/image/7yue_python.jpg" alt=""/>
-                                    <div className="comment">7yue python</div>
-                                </div>
-                                <div className="course-container">
-                                    <img className="course-img"src="https://www.yangicheng.cn/static/image/7yue_python.jpg" alt=""/>
-                                    <div className="comment">bobo AI</div>
-                                </div>
-                                <div className="course-container">
-                                    <img className="course-img"src="https://www.yangicheng.cn/static/image/7yue_python.jpg" alt=""/>
-                                    <div className="comment">shuangyue</div>
-                                </div>
-                                <div className="course-container">
-                                    <img className="course-img"src="https://www.yangicheng.cn/static/image/7yue_python.jpg" alt=""/>
-                                    <div className="comment">dell react</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </HomepageContent>
-                </HomepageContainer>
+            </Link>
+            <DesktopHeader>
+                <section className="left-container">
+                    <img src="https://www.yangicheng.cn/static/image/cover.jpg" alt="avatar" />
+                    <div className="info-container">
+                        <span className="name">Towle</span>
+                        <span className="other">never say die</span>
+                    </div>
+                </section>
+                <section className="right-container">
+                    <i className="iconfont icon">&#xea66;</i>
+                </section>
+            </DesktopHeader>
+            <DesktopContent>
+                <ContentNav>
+                    <nav className={select === 0 ? "nav-item nav-select" : "nav-item"}
+                        onClick={() => setSelect(0)}>
+                        <i className="iconfont icon">&#xe6e4;</i>
+                        <div>精选文章</div>
+                    </nav>
+                    <nav className={select === 1 ? "nav-item nav-select" : "nav-item"}
+                        onClick={() => setSelect(1)}>
+                        <i className="iconfont icon">&#xe6e4;</i>
+                        <div>精选笔记</div>
+                    </nav>
+                    <nav className={select === 2 ? "nav-item nav-select" : "nav-item"}
+                        onClick={() => setSelect(2)}>
+                        <i className="iconfont icon">&#xe6e4;</i>
+                        <div>我的仓库</div>
+                    </nav>
+                    <nav className={select === 3 ? "nav-item nav-select" : "nav-item"}
+                        onClick={() => setSelect(3)}>
+                        <i className="iconfont icon">&#xe6e4;</i>
+                        <div>我的兴趣</div>
+                    </nav>
+                </ContentNav>
 
-            </HomepageWrapper>
-        )
-    }
-}
+                {(() => {
+                    switch (select) {
+                        case 1:
+                            return (<Content>笔记</Content>)
+                        case 2:
+                            return (<Content>仓库</Content>)
+                        case 3:
+                            return (<Content>兴趣</Content>)
+                        default:
+                            return (
+                                <Content>
+                                    <ArticleContainer>
+                                        <div className="article-item">
+                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
+                                            <div className="article-content">
+                                                <div className="article-title">关于网站,关于博客</div>
+                                                <div className="article-summary">
+                                                    <div className="label-container">
+                                                        <div className="label">asd</div>
+                                                    </div>
+                                                    <div className="date">2.21</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="article-item">
+                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
+                                            <div className="article-content">
+                                                <div className="article-title">关于网站,关于博客</div>
+                                                <div className="article-summary">
+                                                    <div className="label-container">
+                                                        <div className="label">心路历程</div>
+                                                        <div className="label">闲谈</div>
+                                                    </div>
+                                                    <div className="date">2.21</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="article-item">
+                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
+                                            <div className="article-content">
+                                                <div className="article-title">关于网站,关于博客</div>
+                                                <div className="article-summary">
+                                                    <div className="label-container">
+                                                        <div className="label">心路历程</div>
+                                                        <div className="label">闲谈</div>
+                                                    </div>
+                                                    <div className="date">2.21</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="article-item">
+                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
+                                            <div className="article-content">
+                                                <div className="article-title">关于网站,关于博客</div>
+                                                <div className="article-summary">
+                                                    <div className="label-container">
+                                                        <div className="label">心路历程</div>
+                                                        <div className="label">闲谈</div>
+                                                    </div>
+                                                    <div className="date">2.21</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="article-item">
+                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
+                                            <div className="article-content">
+                                                <div className="article-title">关于网站,关于博客</div>
+                                                <div className="article-summary">
+                                                    <div className="label-container">
+                                                        <div className="label">心路历程</div>
+                                                        <div className="label">闲谈</div>
+                                                    </div>
+                                                    <div className="date">2.21</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="article-item">
+                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
+                                            <div className="article-content">
+                                                <div className="article-title">关于网站,关于博客</div>
+                                                <div className="article-summary">
+                                                    <div className="label-container">
+                                                        <div className="label">心路历程</div>
+                                                        <div className="label">闲谈</div>
+                                                    </div>
+                                                    <div className="date">2.21</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ArticleContainer>
+                                </Content>
+                            )
+                    }
+                })()
+                }
+            </DesktopContent>
+        </HomepageContainer >
+    )
+
+};
+
 
 export default Homepage

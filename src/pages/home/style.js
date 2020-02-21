@@ -10,7 +10,7 @@ export const DesktopContainer = styled.div `
         display: none;
     }
 `
-export const DesktopHeader = styled.div `
+export const DesktopHeader = styled.header `
     display:flex;
     flex-direction: row;
     justify-content: center;
@@ -27,7 +27,7 @@ export const DesktopHeader = styled.div `
         font-weight: 400;
     }
 `
-export const DesktopEntrance = styled.div `
+export const DesktopEntrance = styled.nav `
     display: flex;
     flex-direction: row;
     justify-content:center;
@@ -73,7 +73,7 @@ export const MobileContainer = styled.div `
         background-color: #F2EEDF;
     }
 `
-export const MobileHeader = styled.div `
+export const MobileHeader = styled.header `
     display: flex;
     flex-direction: row;
     justify-content:center;
@@ -86,7 +86,7 @@ export const MobileHeader = styled.div `
         font-weight: 400;
     }
 `
-export const MobileEntrance = styled.div `
+export const MobileEntrance = styled.nav `
     display:flex;
     flex-direction: column;
     justify-content: space-around;
