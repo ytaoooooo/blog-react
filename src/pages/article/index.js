@@ -29,11 +29,11 @@ function Article(props) {
                 prevEl: '.swiper-button-prev',
             },
         });
-        
+
     })
-    useEffect(()=>{
+    useEffect(() => {
         props.getArticleList();
-    },[])
+    }, [])
     return (
         <ArticleContainer>
             <Header>
@@ -58,45 +58,27 @@ function Article(props) {
                         <div className="swiper-button-next"></div>
                     </div>
                     <div className="article-container">
-                        <div className="article-item">
-                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" className="article-img" />
-                            <div className="article-content">
-                                <div className="article-title">关于网站，关于博客</div>
-                                <div className="article-summary">
-                                    <div className="label-container">
-                                        <div className="label">闲谈</div>
-                                        <div className="label">心路历程</div>
+                        {props.articleList.toJS().map((item) => {
+                            return (
+                                <div className="article-item" key={item.id}>
+                                    <img src={item.articleImg} alt="" className="article-img" />
+                                    <div className="article-content">
+                                        <div className="article-title">{item.articleTitle}</div>
+                                        <div className="article-summary">
+                                            <div className="label-container">
+                                               {item.articleLabel.map((item,index)=>{
+                                                   return(
+                                                    <div className="label" key={index}>{item}</div>
+                                                   )
+                                               })} 
+                                                
+                                            </div>
+                                            <div className="date">{item.articleDate}</div>
+                                        </div>
                                     </div>
-                                    <div className="date">2.21</div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="article-item">
-                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" className="article-img" />
-                            <div className="article-content">
-                                <div className="article-title">关于网站，关于博客</div>
-                                <div className="article-summary">
-                                    <div className="label-container">
-                                        <div className="label">闲谈</div>
-                                        <div className="label">心路历程</div>
-                                    </div>
-                                    <div className="date">2.21</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="article-item">
-                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" className="article-img" />
-                            <div className="article-content">
-                                <div className="article-title">关于网站，关于博客</div>
-                                <div className="article-summary">
-                                    <div className="label-container">
-                                        <div className="label">闲谈</div>
-                                        <div className="label">心路历程</div>
-                                    </div>
-                                    <div className="date">2.21</div>
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        })}
                     </div>
                 </Content>
                 <SideBar>this is sideBar</SideBar>
@@ -114,7 +96,7 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = (dispatch) => ({
-    getArticleList: ()=>{
+    getArticleList: () => {
         dispatch(actionCreator.getArticleList(dispatch))
     }
 })

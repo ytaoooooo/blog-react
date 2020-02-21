@@ -11,7 +11,6 @@ export const getArticleList = () => {
     return (dispatch)=>{
         axios.get('https://www.yangicheng.cn/node/api/article')
             .then((res)=> {
-                console.log(1)
                 const articleList = fromJS(res.data.data.articleList)
                 dispatch(initArticleListAction(articleList))
             })
