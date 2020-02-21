@@ -1,0 +1,1 @@
+export const GET_ARTICLE_LIST = "get_article_list"
