@@ -1,94 +1,107 @@
 import styled from 'styled-components'
 
-export const ArticleWrapper = styled.div`
-    background:#F2EEDF;
-    .back {
-        position: fixed;
-        font-size: 40px;
-        top: 30px;
-        left : 30px;
-    }
-`
-export const ArticleContainer = styled.div`
-    display: flex;
+export const ArticleContainer = styled.div `
+    display:flex;
     flex-direction: column;
-    margin: 0 12%;
+    background-color:#F2EEDF;
+    width:100%;
+    
 `
-export const ArticleHeader = styled.div`
-    display: flex;
+export const Header = styled.header `
+    display:flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    .title{
-        font-family: "Lohit Devanagari", "ITF Devanagari";
-        font-size:30px;
-        font-weight: 400;
+    width:100%;
+    height: 12rem;
+    @media only screen and (max-width: 30rem){
+        height: 10rem;    
     }
+    .title{ 
+        font-family: "Lohit Devanagari", "ITF Devanagari";
+        font-size: 3rem;
+        font-weight: 400;
+    }   
 `
-export const ArticleContent = styled.div`
+export const ContentContainer = styled.div `
     display: flex;
     flex-direction: row;
-    
+    width:70%;
+    padding: 0 15%;
+    background-color:#F2EEDF;
+    @media only screen and (max-width: 30rem){
+        width:calc(100% - 1rem);
+        padding: 0 .5rem;
+    }
 `
-export const ArticleLeft = styled.div`
+
+export const Content = styled.div `
     display:flex;
-    width: 70%;
-    box-sizing: border-box;
-    padding:10px 10px;
     flex-direction: column;
+    width:70%;
+    padding-bottom: 2rem;
+    @media only screen and (max-width: 30rem){
+        width: 100%;
+    }
     .swiper-container{
         width:100%;
-        height:300px;
-        .swiper-img{
-            height:300px;
-            width:100%;
+        height: 300px;
+        img{
+            height: 300px;
+            width: 100%;
             border-radius: 8px;
+            @media only screen and (max-width: 30rem){
+                height: 240px;
+            }
+        }
+        @media only screen and (max-width: 30rem){
+            height:  240px;
         }
     }
     .article-container{
-        margin-top:20px;
-        background: #fff;
-        border-radius: 9px;
+        margin-top: 2rem;
         box-sizing: border-box;
-        padding:10px 10px;
-        box-shadow: 3px 3px 3px #dedede;
-        overflow:hidden;
+        box-shadow: rgb(222, 222, 222) .3rem .3rem .3rem;
+        background: rgb(255, 255, 255);
+        border-radius: .9rem;
+        padding: 1rem;
+        overflow: hidden;
+        @media only screen and (max-width: 30rem){
+            margin-top: 1.4rem;
+        }
         .article-item{
-            display:flex;
-            width:100%;
-            height:100px;
+            display: flex;
+            width: 100%;
+            height: 10rem;
             flex-direction: row;
-            align-items: center;
+            align-items: center;    
             .article-img{
-                height: 80px;
-                width: 80px;
-                border-radius: 10px;
-                margin-right: 20px;
+                height: 8rem;
+                width: 8rem;
+                border-radius: 1rem;
+                margin-right: 2rem;
             }
             .article-content{
                 display:flex;
                 flex-direction: column;
-                width:550px;
-                height: 95px;
+                width:calc(100% - 10rem);
+                height: 100%;
                 justify-content: center;
-                border-bottom: 1px solid #dedede;
+                border-bottom: .1rem solid #dedede;
                 a:link {
                 text-decoration: none;
                 }
                 .article-title{
                     font-weight: 700;
-                    margin-bottom: 10px;
-                    font-size: 16px;
+                    margin-bottom: 1rem;
+                    font-size: 1.8rem;
                     color: #1c1f21;
-                    line-height: 30px;
+                    line-height: 3rem;
                     word-break: keep-all;
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     width:100%;
-                    
-                    
                 }
                 .article-summary{
                     display: flex;
@@ -101,31 +114,36 @@ export const ArticleLeft = styled.div`
                             display:flex;
                             flex-direction:row;
                             justify-content:center;
-                            width:50px;
-                            padding: 4px 12px;
-                            font-size: 12px;
+                            width:5rem;
+                            padding: .4rem 1.2rem;
+                            font-size: 1.2rem;
                             color: #545c63;
-                            line-height: 16px;
+                            line-height: 1.6rem;
                             background: rgba(84,92,99,0.1);
-                            border-radius: 12px;
-                            margin-right:10px;
+                            border-radius: 1.2rem;
+                            margin-right:1rem;
                         }
                         
                     }
                     .date{
-                        font-size: 12px;
+                        font-size: 1.2rem;
                         color: #9199a1;
-                        line-height: 18px;
-                        padding-top: 3px;
+                        line-height: 1.8rem;
+                        padding-top: .3rem;
                     }
                 }
             }
         }
     }
+
 `
-export const ArticleRight = styled.div`
+
+export const SideBar = styled.section `
     display:flex;
-    width: 30%;
-    flex-direction: column;
-    
+    flex-direction: column ;
+    width:30%;
+    background-color:#F2EEDF;
+    @media only screen and (max-width:30rem){
+        display: none;
+    }
 `
