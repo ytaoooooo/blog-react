@@ -1,21 +1,15 @@
-// import {fromJS} from 'immutable'
+import {fromJS} from 'immutable'
 import * as actionType from './actionType'
 
-// const defaultState = fromJS({
-//     topicList:[],
-//     recommendList:[],
-//     list:[],
-//     showScroll: false,
-//     page: 1
-// })
-const defaultState = {
-    login: false
-}
+const defaultState = fromJS({
+    content: ''
+})
+
 
 export default (state=defaultState, action)=>{
     switch (action.type) {
-        // case actionType.GET_RECOMMEND_DATA:
-        //     return state.set('recommendList',action.list)
+        case actionType.GET_ARTICLE_DETAIL_CONTENT:
+            return state.set('content',action.content)
         default:
             return state
     }

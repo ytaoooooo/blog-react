@@ -1,0 +1,1 @@
+export const GET_ARTICLE_DETAIL_CONTENT = "get_article_detail_content"

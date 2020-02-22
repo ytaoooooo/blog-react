@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { actionCreator } from './store'
+import { Link } from 'react-router-dom'
 import {
     ArticleContainer,
     Header,
@@ -29,11 +30,9 @@ function Article(props) {
                 prevEl: '.swiper-button-prev',
             },
         });
-
-    })
-    useEffect(() => {
         props.getArticleList();
-    }, [])
+    },[])
+    
     return (
         <ArticleContainer>
             <Header>
@@ -63,15 +62,17 @@ function Article(props) {
                                 <div className="article-item" key={item.id}>
                                     <img src={item.articleImg} alt="" className="article-img" />
                                     <div className="article-content">
-                                        <div className="article-title">{item.articleTitle}</div>
+                                        <Link to={'/article/articleDetail/' + item.id}>
+                                            <div className="article-title">{item.articleTitle}</div>
+                                        </Link>
                                         <div className="article-summary">
                                             <div className="label-container">
-                                               {item.articleLabel.map((item,index)=>{
-                                                   return(
-                                                    <div className="label" key={index}>{item}</div>
-                                                   )
-                                               })} 
-                                                
+                                                {item.articleLabel.map((item, index) => {
+                                                    return (
+                                                        <div className="label" key={index}>{item}</div>
+                                                    )
+                                                })}
+
                                             </div>
                                             <div className="date">{item.articleDate}</div>
                                         </div>
