@@ -18,6 +18,7 @@ import { connect } from 'react-redux'
 
 
 function Article(props) {
+    const {getArticleList} = props
     useEffect(() => {
         new Swiper('.swiper-container', {
             loop: true, // 循环模式选项
@@ -30,8 +31,8 @@ function Article(props) {
                 prevEl: '.swiper-button-prev',
             },
         });
-        props.getArticleList();
-    },[])
+        getArticleList();
+    },[getArticleList])
     
     return (
         <ArticleContainer>

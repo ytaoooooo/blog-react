@@ -13,9 +13,10 @@ import { actionCreator } from './store'
 
 function Homepage(props) {
     const [select, setSelect] = useState(0);
+    const {getNiceArticleList} = props
     useEffect(() => {
-        props.getNiceArticleList()
-    }, [])
+        getNiceArticleList()
+    }, [getNiceArticleList])
 
     return (
         <HomepageContainer>

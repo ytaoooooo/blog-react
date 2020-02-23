@@ -12,11 +12,13 @@ import { connect } from 'react-redux'
 import { actionCreator } from './store'
 
 function ArticleDetail(props) {
+    const {getArticleDetailContent} = props
+    const id = props.match.params.id 
     useEffect(() => {
-        props.getArticleDetailContent(props.match.params.id)
-    },[])
-    const contenta = `
-    `
+        getArticleDetailContent(id)
+    },[getArticleDetailContent,id])
+    // const contenta = `
+    // `
     
 
     return (
