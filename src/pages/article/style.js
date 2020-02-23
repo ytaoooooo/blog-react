@@ -5,6 +5,7 @@ export const ArticleContainer = styled.div `
     flex-direction: column;
     background-color:#F2EEDF;
     width:100%;
+    min-height:100%;
     
 `
 export const Header = styled.header `

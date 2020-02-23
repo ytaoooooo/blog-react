@@ -6,18 +6,18 @@ import * as actionType from './actionType'
 //     type: actionType.GET_RECOMMEND_DATA,
 //     list: fromJS(list)
 // })
-const getArticleDetailAction = (content)=>({
+const getArticleDetailAction = (data)=>({
     type: actionType.GET_ARTICLE_DETAIL_CONTENT,
-    content
+    data
 })
 
 
 export const getArticleDetailContent = (id) => {
     return (dispatch) => {
-        axios.get(`https://yangicheng.cn/node/api/article/detail/?id=${id}`)
+        axios.get(`https://yangicheng.cn/node/api/v1/article/detail/?id=${id}`)
             .then((res) => {
-                let content = fromJS(res.data.content)
-                dispatch(getArticleDetailAction(content))
+                let data = fromJS(res.data.data)
+                dispatch(getArticleDetailAction(data))
             })
             .catch((err)=>{
                 console.log(err)

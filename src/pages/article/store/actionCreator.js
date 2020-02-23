@@ -9,7 +9,7 @@ const initArticleListAction = (articleList)=>({
 
 export const getArticleList = () => {
     return (dispatch)=>{
-        axios.get('https://www.yangicheng.cn/node/api/article')
+        axios.get('https://www.yangicheng.cn/node/api/v1/article')
             .then((res)=> {
                 const articleList = fromJS(res.data.data.articleList)
                 dispatch(initArticleListAction(articleList))

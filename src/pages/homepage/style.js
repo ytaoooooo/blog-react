@@ -208,6 +208,9 @@ export const ArticleContainer = styled.div`
             }
         }
         .article-content{
+            a:link {
+                text-decoration: none;
+                }
             display:flex;
             flex-direction: column;
             justify-content: space-between;
@@ -229,6 +232,7 @@ export const ArticleContainer = styled.div`
                 word-break: keep-all;
                 width:100%;
                 margin-top:1.2rem;
+                color: #222;
 
                 @media only screen and (max-width: 30rem){
                     font-weight: 600;

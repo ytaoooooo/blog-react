@@ -1,0 +1,1 @@
+export const GET_NICE_ARTICLE_LIST = "get_nice_article_list"

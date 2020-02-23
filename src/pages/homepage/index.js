@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     HomepageContainer,
     DesktopHeader,
@@ -8,9 +8,15 @@ import {
     ArticleContainer
 } from './style'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { actionCreator } from './store'
 
-function Homepage() {
+function Homepage(props) {
     const [select, setSelect] = useState(0);
+    useEffect(() => {
+        props.getNiceArticleList()
+    }, [])
+
     return (
         <HomepageContainer>
             <Link to="/">
@@ -64,83 +70,33 @@ function Homepage() {
                             return (
                                 <Content>
                                     <ArticleContainer>
-                                        <div className="article-item">
-                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
-                                            <div className="article-content">
-                                                <div className="article-title">关于网站,关于博客</div>
-                                                <div className="article-summary">
-                                                    <div className="label-container">
-                                                        <div className="label">asd</div>
+                                        {
+                                            props.niceArticleList.toJS().map((item) => {
+                                                return (
+                                                    <div className="article-item" key={item.id}>
+                                                        <img src={item.articleImg} alt="" />
+                                                        <div className="article-content">
+                                                            <Link to={'/article/articleDetail/' + item.id}>
+                                                                <div className="article-title">{item.articleTitle}</div>
+                                                            </Link>
+                                                            <div className="article-summary">
+                                                                <div className="label-container">
+                                                                    {
+                                                                        item.articleLabel.map((item, index) => {
+                                                                            return (
+                                                                                <div className="label" key={index}>{item}</div>
+                                                                            )
+                                                                        })
+                                                                    }
+
+                                                                </div>
+                                                                <div className="date">{item.articleDate}</div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div className="date">2.21</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="article-item">
-                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
-                                            <div className="article-content">
-                                                <div className="article-title">关于网站,关于博客</div>
-                                                <div className="article-summary">
-                                                    <div className="label-container">
-                                                        <div className="label">心路历程</div>
-                                                        <div className="label">闲谈</div>
-                                                    </div>
-                                                    <div className="date">2.21</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="article-item">
-                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
-                                            <div className="article-content">
-                                                <div className="article-title">关于网站,关于博客</div>
-                                                <div className="article-summary">
-                                                    <div className="label-container">
-                                                        <div className="label">心路历程</div>
-                                                        <div className="label">闲谈</div>
-                                                    </div>
-                                                    <div className="date">2.21</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="article-item">
-                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
-                                            <div className="article-content">
-                                                <div className="article-title">关于网站,关于博客</div>
-                                                <div className="article-summary">
-                                                    <div className="label-container">
-                                                        <div className="label">心路历程</div>
-                                                        <div className="label">闲谈</div>
-                                                    </div>
-                                                    <div className="date">2.21</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="article-item">
-                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
-                                            <div className="article-content">
-                                                <div className="article-title">关于网站,关于博客</div>
-                                                <div className="article-summary">
-                                                    <div className="label-container">
-                                                        <div className="label">心路历程</div>
-                                                        <div className="label">闲谈</div>
-                                                    </div>
-                                                    <div className="date">2.21</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="article-item">
-                                            <img src="https://yangicheng.cn/static/image/blog-summary/javascript.png" alt="" />
-                                            <div className="article-content">
-                                                <div className="article-title">关于网站,关于博客</div>
-                                                <div className="article-summary">
-                                                    <div className="label-container">
-                                                        <div className="label">心路历程</div>
-                                                        <div className="label">闲谈</div>
-                                                    </div>
-                                                    <div className="date">2.21</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                )
+                                            })
+                                        }
                                     </ArticleContainer>
                                 </Content>
                             )
@@ -148,10 +104,21 @@ function Homepage() {
                 })()
                 }
             </DesktopContent>
-        </HomepageContainer >
+        </HomepageContainer>
     )
 
 };
 
 
-export default Homepage
+
+const mapState = (state) => ({
+    niceArticleList: state.getIn(["homepage", "niceArticleList"])
+})
+
+const mapDispatch = (dispatch) => ({
+    getNiceArticleList: () => {
+        dispatch(actionCreator.getNiceArticleList())
+    }
+})
+
+export default connect(mapState, mapDispatch)(Homepage)
