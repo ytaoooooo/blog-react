@@ -1,98 +1,90 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { actionCreator } from './store'
 import {
-    SummaryWrapper,
     SummaryContainer,
-    SummaryHeader,
-    SummaryContent,
-    SummaryLeft,
+    Header,
+    Content,
+    SideBar,
     SummaryRight
 } from './style'
-import { actionCreator } from './store'
-import { connect } from 'react-redux'
 import {Link } from 'react-router-dom'
 
+function Summary(props) {
+    const [select, setSelect] = useState(0);
+    const { data, getSummaryData } = props;
+    const { sideBarList, summaryItem } = data.toJS()
 
+    const { headerImg, headerName, headerSummary, number } = sideBarList[select]
 
-class Summary extends Component {
+    useEffect(() => {
+        getSummaryData()
+    }, [getSummaryData])
 
-    render() {
-        const { sideBarItemSelect, handleSideBarItemClick, sideBarList, summaryItem, summaryItemContent } = this.props
-        const { headerImg, headerName, headerSummary } = summaryItem.toJS()[sideBarItemSelect]
-        const summaryContentList = summaryItemContent.toJS()[sideBarItemSelect]
-        const summaryContentNumber = sideBarList.toJS()[sideBarItemSelect].number
-
-        return (
-            <SummaryWrapper>
-                <Link to="/">
-                    <i className="iconfont back">&#xe9da;</i>
-                </Link>
-                <SummaryContainer>
-                    <SummaryHeader>
-                        <div className="title">ملاحظات </div>
-                    </SummaryHeader>
-                    <SummaryContent>
-                        <SummaryLeft>
-                            <div className="sideBarContainer">
-                                {sideBarList.toJS().map((item, index) => {
-                                    return (
-                                        <div className={sideBarItemSelect === index ? "sideBarItem sideBarItemSelect" : "sideBarItem"}
-                                            key={item.id} onClick={() => handleSideBarItemClick(index)}>
-                                            <div className="item-name">{item.name}</div>
-                                            <div className="item-viewNumber">{item.number}</div>
-                                        </div>
-                                    )
-                                })}
+    return (
+        <SummaryContainer>
+            <Header>
+                <div className="title">ملاحظات </div>
+            </Header>
+            <Content>
+                <SideBar>
+                    {sideBarList.map((item, index) => {
+                        return (
+                            <div className={select === item.id ? "sideBar-item sideBarItemSelect" : "sideBar-item"}
+                                key={item.id} onClick={() => setSelect(index)}>
+                                <div className="item-name">{item.name}</div>
+                                <div className="item-viewNumber">{item.number}</div>
                             </div>
-                        </SummaryLeft>
-                        <SummaryRight>
-
-                            <div className="summaryItemHeader">
-                                <img src={headerImg} alt="" className="summaryItemHeaderImg" />
-                                <div className="summaryItemHeaderContent">
-                                    <div className="summaryItemHeaderName">{headerName}</div>
-                                    <div className="summaryItemheaderSummary">{headerSummary}</div>
-                                </div>
-                            </div>
-                            <div className="summaryItemSumContainer">
-                                <div className="summaryItemSum">{summaryContentNumber} results</div>
-                            </div>
-                            <div className="summaryItemContentContainer">
-                                {summaryContentList.map((item) => {
+                        )
+                    })}
+                </SideBar>
+                <SummaryRight>
+                    <div className="summaryItemHeader">
+                        <img src={headerImg} alt="" className="summaryItemHeaderImg" />
+                        <div className="summaryItemHeaderContent">
+                            <div className="summaryItemHeaderName">{headerName}</div>
+                            <div className="summaryItemheaderSummary">{headerSummary}</div>
+                        </div>
+                    </div>
+                    <div className="summaryItemSumContainer">
+                        <div className="summaryItemSum"> {number} results</div>
+                    </div>
+                    <div className="summaryItemContentContainer">
+                        {
+                            summaryItem.map((item) => {
+                                if (item.type === select) {
                                     return (
                                         <div className="summaryItemContentItem" key={item.id}>
-                                            <div className="itemIcon"></div>
+                                            <div className="itemIcon">
+                                                <i className="iconfont icon">&#xe76b;</i>
+                                            </div>
                                             <div className="itemContentContainer">
-                                                <div className="summary-item-name">{item.contentName}</div>
-                                                <div className="summary-item-summary">{item.contentSummary}</div>
-                                                <div className="summary-item-other">{item.contentOther}</div>
+                                                <Link to="/">
+                                                    <div className="summary-item-name">{item.name}</div>
+                                                </Link>
+                                                <div className="summary-item-summary">{item.summary}</div>
+                                                <div className="summary-item-other">other</div>
                                             </div>
                                         </div>
                                     )
-                                })}
-
-                            </div>
-                        </SummaryRight>
-                    </SummaryContent>
-                </SummaryContainer>
-            </SummaryWrapper>
-        )
-    }
-    componentDidMount() {
-
-    }
+                                }
+                            })
+                        }
+                    </div>
+                </SummaryRight>
+            </Content>
+        </SummaryContainer>
+    )
 }
 
-const mapStateToProps = (state) => ({
-    sideBarList: state.getIn(['summary', 'sideBarList']),
-    sideBarItemSelect: state.getIn(['summary', "sideBarItemSelect"]),
-    summaryItem: state.getIn(['summary', "summaryItem"]),
-    summaryItemContent: state.getIn(['summary', "summaryItemContent"])
-
+const mapState = (state) => ({
+    data: state.getIn(['summary', 'data']),
 })
-const mapDispatchToProps = (dispatch) => ({
-    handleSideBarItemClick: (index) => {
-        dispatch(actionCreator.setSideBarItemSelect(index))
+
+const mapDispatch = (dispatch) => ({
+    getSummaryData: () => {
+        dispatch(actionCreator.getSummaryData())
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Summary)
+export default connect(mapState, mapDispatch)(Summary)

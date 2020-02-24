@@ -1,1 +1,2 @@
-export const SET_SIDEBAR_ITEM_SELECT = 'summary_set_sideBarItemSelect'
+export const GET_SUMMARY_DATA = 'get_summary_data'
+
