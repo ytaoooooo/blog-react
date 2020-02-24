@@ -63,7 +63,7 @@ function Summary(props) {
                                                     <div className="summary-item-name">{item.name}</div>
                                                 </Link>
                                                 <div className="summary-item-summary">{item.summary}</div>
-                                                <div className="summary-item-other">other</div>
+                                                <div className="summary-item-other">{item.date}</div>
                                             </div>
                                         </div>
                                     )

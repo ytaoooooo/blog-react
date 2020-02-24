@@ -22,3 +22,19 @@ export const getNiceArticleList = ()=>{
         })
     }
 }
+
+const getNiceSummaryListAction = (niceSummaryList)=>({
+    type: actionType.GET_NICE_SUMMARY_LIST,
+    niceSummaryList
+})
+
+export const getNiceSummaryList = ()=>{
+    return (dispatch)=>{
+        axios.get("https://yangicheng.cn/node/api/v1/summary/nice")
+        .then((res)=>{
+
+            const niceSummaryList = fromJS(res.data.data.niceSummaryItem)
+            dispatch(getNiceSummaryListAction(niceSummaryList))
+        })
+    }
+}

@@ -5,18 +5,24 @@ import {
     DesktopContent,
     ContentNav,
     Content,
-    ArticleContainer
+    ArticleContainer,
+    NoteContainer,
+    NoteItem
 } from './style'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreator } from './store'
 
+
 function Homepage(props) {
     const [select, setSelect] = useState(0);
-    const {getNiceArticleList} = props
+    const { getNiceArticleList, getNiceSummaryList } = props
     useEffect(() => {
         getNiceArticleList()
     }, [getNiceArticleList])
+    useEffect(() => {
+        getNiceSummaryList()
+    }, [getNiceSummaryList])
 
     return (
         <HomepageContainer>
@@ -62,7 +68,27 @@ function Homepage(props) {
                 {(() => {
                     switch (select) {
                         case 1:
-                            return (<Content>笔记</Content>)
+                            return (<Content>
+                                <NoteContainer>
+                                    {
+                                        props.niceSummaryList.toJS().map((item) => {
+                                            return (
+                                                <NoteItem key={item.id}>
+                                                    <div className="item-icon">
+                                                        <i className="iconfont icon">&#xe76b;</i>
+                                                    </div>
+                                                    <div className="item-container">
+                                                        <Link to="/">
+                                                            <div className="title">{item.name}</div>
+                                                        </Link>
+                                                        <div className="other">{item.date}</div>
+                                                    </div>
+                                                </NoteItem>
+                                            )
+                                        })
+                                    }
+                                </NoteContainer>
+                            </Content>)
                         case 2:
                             return (<Content>仓库</Content>)
                         case 3:
@@ -113,12 +139,16 @@ function Homepage(props) {
 
 
 const mapState = (state) => ({
-    niceArticleList: state.getIn(["homepage", "niceArticleList"])
+    niceArticleList: state.getIn(["homepage", "niceArticleList"]),
+    niceSummaryList: state.getIn(["homepage", "niceSummaryList"])
 })
 
 const mapDispatch = (dispatch) => ({
     getNiceArticleList: () => {
         dispatch(actionCreator.getNiceArticleList())
+    },
+    getNiceSummaryList: () => {
+        dispatch(actionCreator.getNiceSummaryList())
     }
 })
 

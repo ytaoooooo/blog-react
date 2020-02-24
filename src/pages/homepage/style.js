@@ -320,8 +320,52 @@ export const ArticleContainer = styled.div`
     }    
 `
 
+export const NoteContainer = styled.section `
+    display:flex;
+    flex-direction: column;
+    width:100%;
 
+`
+export const NoteItem = styled.div `
+    display:flex;
+    flex-direction: row;
+    height: 4rem;
+    padding: .5rem 0;
+    border-bottom: .1rem solid #F2EEDF;
+    
+    .item-icon{
+        margin-right: .5rem;
+        .icon{
+            font-size: 2.6rem;
 
+        }
+    }
+    .item-container{
+        display:flex;
+        flex-direction: column;
+        justify-content:space-between;
+        width:100%;
+        a:link{
+            text-decoration: none;
+        }
+        .title{
+            font-size: 1.6rem;
+            line-height: 1.5;
+            color: #0366d6;
+        }
+        .other{
+            display:flex;
+            padding-bottom:.2rem;
+            width:100%;
+            flex-direction: row-reverse;
+            color: #9199a1;
+            font-size: 1.4rem;
+            
+        }
+        
+    }
+
+`
 
 
 

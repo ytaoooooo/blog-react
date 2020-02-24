@@ -246,10 +246,11 @@ export const SummaryRight = styled.div`
                 .summary-item-other{
                     display:flex;
                     box-sizing:border-box;
-                    flex-direction: row;
-                    font-size:1.2rem;
+                    flex-direction: row-reverse;
+                    font-size:1.4rem;
                     line-height:1.5;
                     padding:1rem 0 .5rem 0;
+                    color: #9199a1;
                 }
                 
             }
