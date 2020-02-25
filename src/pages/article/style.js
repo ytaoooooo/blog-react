@@ -6,7 +6,15 @@ export const ArticleContainer = styled.div `
     background-color:#F2EEDF;
     width:100%;
     min-height:100%;
-    
+    .back {
+        position: fixed;
+        font-size: 40px;
+        top: 30px;
+        left : 30px;
+        @media only screen and (max-width:30rem){
+            display: none
+        }
+    }
 `
 export const Header = styled.header `
     display:flex;

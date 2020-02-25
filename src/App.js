@@ -9,6 +9,7 @@ import Homepage from './pages/homepage/loadable'
 import Article from './pages/article/loadable'
 import Summary from './pages/summary/loadable'
 import ArticleDetail from './pages/articleDetail'
+import SummaryDetail from './pages/summaryDetail'
 // import Header from './common/header'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/article/articleDetail/:id" exact component={ArticleDetail}></Route>
         <Route path="/homepage" exact component={Homepage}></Route>
         <Route path="/" exact component={Home}></Route>
+        <Route path="/summary/summaryDetail/:id" exact component={SummaryDetail}></Route>
       </BrowserRouter>
     </Provider>
 

@@ -23,6 +23,9 @@ function Summary(props) {
 
     return (
         <SummaryContainer>
+            <Link to="/">
+                <i className="iconfont back">&#xe9da;</i>
+            </Link>
             <Header>
                 <div className="title">ملاحظات </div>
             </Header>
@@ -59,7 +62,7 @@ function Summary(props) {
                                                 <i className="iconfont icon">&#xe76b;</i>
                                             </div>
                                             <div className="itemContentContainer">
-                                                <Link to="/">
+                                                <Link to={"/summary/summaryDetail/"+ item.id}>
                                                     <div className="summary-item-name">{item.name}</div>
                                                 </Link>
                                                 <div className="summary-item-summary">{item.summary}</div>

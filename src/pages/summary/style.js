@@ -8,7 +8,15 @@ export const SummaryContainer = styled.div`
     @media only screen and (max-width: 30rem){
         background: #fff;
     }
-    
+    .back {
+        position: fixed;
+        font-size: 40px;
+        top: 30px;
+        left : 30px;
+        @media only screen and (max-width:30rem){
+            display: none
+        }
+    }
 `
 export const Header = styled.header`
     display:flex;

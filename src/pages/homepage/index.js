@@ -78,7 +78,7 @@ function Homepage(props) {
                                                         <i className="iconfont icon">&#xe76b;</i>
                                                     </div>
                                                     <div className="item-container">
-                                                        <Link to="/">
+                                                        <Link to={"/summary/summaryDetail/"+ item.id}>
                                                             <div className="title">{item.name}</div>
                                                         </Link>
                                                         <div className="other">{item.date}</div>

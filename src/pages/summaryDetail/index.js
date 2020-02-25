@@ -1,22 +1,21 @@
 import React, { useEffect } from 'react'
-// import axios from 'axios'
 import {
-    ArticleDetailContainer,
+    SummaryDetailContainer,
     Title,
-    ArticleWrapper,
-    Article,
+    SummaryWrapper,
+    Summary,
     SideBar
 } from './style'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreator } from './store'
 
-function ArticleDetail(props) {
-    const {getArticleDetailContent} = props
+function SummaryDetail(props) {
+    const {getSummaryDetailContent} = props
     const id = props.match.params.id 
     useEffect(() => {
-        getArticleDetailContent(id)
-    },[getArticleDetailContent,id])
+        getSummaryDetailContent(id)
+    },[getSummaryDetailContent,id])
     // const contenta = `
     //     <h1>关于网站</h1>
     //     <p>网站的是基于react框架开发，采用了响应式开发，目前兼容了小屏移动端和pc网页端，样式在慢慢改进，功能会慢慢增加。设计能力也需要加强学习</p>
@@ -33,35 +32,36 @@ function ArticleDetail(props) {
     
 
     return (
-        <ArticleDetailContainer>
-            <Link to="/article">
+        <SummaryDetailContainer>
+            <Link to="/summary">
                 <i className="iconfont back">&#xe9da;</i>
             </Link>
             <Title>غرب شارع</Title>
-            <ArticleWrapper>
-                <Article>
+            <SummaryWrapper>
+                <Summary>
                     <header>{props.data.toJS().title}</header>
+                    {/* <header>123</header> */}
                     <content dangerouslySetInnerHTML={{ __html: props.data.toJS().content }}></content>
                     {/* <content dangerouslySetInnerHTML={{ __html: contenta }}></content> */}
                     <footer></footer>
-                </Article>
+                </Summary>
                 <SideBar>
 
                 </SideBar>
-            </ArticleWrapper>
-        </ArticleDetailContainer>
+            </SummaryWrapper>
+        </SummaryDetailContainer>
     )
 }
 
 
 const mapState = (state) => ({
-    data: state.getIn(['articleDetail','data'])
+    data: state.getIn(['summaryDetail','data'])
 })
 
 const mapDispatch = (dispatch) => ({
-    getArticleDetailContent: (id)=>{
-        dispatch(actionCreator.getArticleDetailContent(id))
+    getSummaryDetailContent: (id)=>{
+        dispatch(actionCreator.getSummaryDetailContent(id))
     }
 })
 
-export default connect(mapState, mapDispatch)(ArticleDetail)
+export default connect(mapState, mapDispatch)(SummaryDetail)

@@ -355,11 +355,11 @@ export const NoteItem = styled.div `
         }
         .other{
             display:flex;
-            padding-bottom:.2rem;
+            padding:.2rem 0;
             width:100%;
             flex-direction: row-reverse;
             color: #9199a1;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             
         }
         

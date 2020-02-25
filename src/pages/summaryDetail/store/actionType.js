@@ -1,0 +1,1 @@
+export const GET_SUMMARY_DETAIL_CONTENT = "get_summary_detail_content"

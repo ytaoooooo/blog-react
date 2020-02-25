@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ArticleDetailContainer = styled.div`
+export const SummaryDetailContainer = styled.div`
     display:flex;
     flex-direction: column;
     align-items:center;
@@ -38,7 +38,7 @@ export const Title = styled.div `
 `
 
 
-export const ArticleWrapper = styled.div`
+export const SummaryWrapper = styled.div`
     display:flex;
     flex-direction: row;
     width: 70%;
@@ -47,7 +47,7 @@ export const ArticleWrapper = styled.div`
     }
 `
 
-export const Article = styled.article`
+export const Summary = styled.div`
     display:flex;
     flex-direction: column;
     width: 70%;

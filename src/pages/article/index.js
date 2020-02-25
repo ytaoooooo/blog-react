@@ -36,6 +36,9 @@ function Article(props) {
     
     return (
         <ArticleContainer>
+            <Link to="/">
+                <i className="iconfont back">&#xe9da;</i>
+            </Link>
             <Header>
                 <div className="title"> مقالات </div>
             </Header>
