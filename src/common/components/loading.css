@@ -1,0 +1,21 @@
+.loading-container{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.loading{
+    height: 100px;
+    width: 100px;
+    background: url(./loading.png)  no-repeat;
+    background-position: 50% 50%;
+    animation: rool 1s  linear infinite ;
+
+}
+@keyframes rool{
+    100%{
+        transform: rotate(360deg);
+    }
+}
